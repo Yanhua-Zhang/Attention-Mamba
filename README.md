@@ -6,7 +6,7 @@ This repository includes the official project of our paper submitted to Computer
 
 ### 0. To be noted:
 
-- The source code will be made publicly available upon acceptance of the manuscript..
+- The source code will be made publicly available upon acceptance of the manuscript.
 
 
 
