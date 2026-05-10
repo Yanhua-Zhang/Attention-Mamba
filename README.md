@@ -37,6 +37,8 @@ We trained our model on one NVIDIA A800 (80GB) with the CUDA 11.7 and CUDNN 8500
 
 ### 4. Test our trained model 
 
+#### 1) Synapse dataset
+
 - Download the trained model:[link](https://drive.google.com/drive/folders/1R342qkJUHctw6KTcOXDw464r9kYtmHit?usp=sharing). This trained model reached 85.62% DSC on the Synapse dataset. 
 
 - Put 'best_trained_model_train_main_loss.pth' into this folder: 'results\Datase1_Synapse_8classes_My_Attention_Mamba_2D_My_Attention_Mamba_2D_epo300_bs24_lr0.0005_wd0.01_calc_MultipleOutput_CE_and_Dice_Loss_Ex_PreTrained_AdamW_seed1290\fold_0\Train\Model_best'. Run the following order:
@@ -46,7 +48,7 @@ cd MultiTrans_extension
 ```
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python test.py --dataset Synapse --Model_Name My_Model --bran_weights 0.4 0.3 0.2 0.1 --base_lr 0.1 --branch_depths 5 5 5 5 5 --branch_in_channels 256 256 256 256 256 --branch_key_channels 32 32 32 32 32 --seed 1290
+CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Datase1_Synapse_8classes' --val_interval 100 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --img_size 224 224 --inference_scales 1.0 --base_lr 5e-4 --betas 0.9 0.999 --T_max 100 --eta_min 1e-5 --weight_decay 1e-2 --max_epochs 300 --batch_size 24 --seed 1290 --fold_name 0 --marker='Ex_PreTrained_AdamW' --if_inferece_testset='false' --if_calc_metrics_test='false' --load_model_type='load_best_train_main_loss_model' --if_training='false'
 ```
 
 ### 5. Train/Test by yourself
