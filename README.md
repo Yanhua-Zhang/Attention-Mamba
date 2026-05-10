@@ -1,5 +1,5 @@
-# MultiTrans
-This repository includes the official project of our paper submitted to Computer Methods and Programs in Biomedicine. Title: "MultiTrans: Multi-Branch Transformer Network for Medical Image Segmentation".
+# Attention-Mamba
+Official Implementation of Attention-Mamba: A Mamba-Enhanced Multi-Scale Parallel Inference Network for Medical Image Segmentation (2026).
 
 ## Usage
 
@@ -7,29 +7,23 @@ This repository includes the official project of our paper submitted to Computer
 
 - We will gradually optimize the code to make it more readable and standardized.
 
-- If you have any suggestions for improvement or encounter any issues while using this code, please feel free to contact me: yanhuazhang@mail.nwpu.edu.cn
+- 
 
 ### 1. Download pre-trained Resnet models
 
-Download the pre-trained Resnet models and put them into the folder 'pre_trained_Resnet'.
-
-- resnet50-deep-stem:[link](https://drive.google.com/file/d/1OktRGqZ15dIyB2YTySLfOVtprerHgbef/view?usp=sharing)
-
-- resnet50:[link](https://drive.google.com/file/d/1fUAuRfewRpaS5mFX_IQqrE2syEn9PXrv/view?usp=sharing)
-
-- resnet34:[link](https://drive.google.com/file/d/18Erx_ISMt1XMjJlgl4SQsr-iMvcN-7bZ/view?usp=sharing)
+Download the pre-trained Resnet models and put them into the folder 'datasets_preprocessed'.
 
 - resnet18-deep-stem:[link](https://drive.google.com/file/d/1q1VBV37acIte0GynoS054BWfwwdx1NiZ/view?usp=sharing)
 
-- resnet18:[link](https://drive.google.com/file/d/1LCybGjJ_d-nALvciBBkZil_XfO-7ptAE/view?usp=sharing)
-
 ### 2. Prepare data
 
-Download the preprocessed data and put it into the folder 'preprocessed_data'.
+Download our preprocessed datasets and put it into the folder 'preprocessed_data'.
 
-- Download the Synapse dataset from [official website](https://www.synapse.org/#!Synapse:syn3193805/wiki/217789). Convert them to numpy format, clip within [-125, 275], normalize each 3D volume to [0, 1], and extract 2D slices from 3D volume for training while keeping the testing 3D volume in h5 format.
+- Download the [Synapse dataset](https://drive.google.com/file/d/1efK3jAh38_S_0M2MKWzbQHGjyAxyvVe_/view?usp=sharing). 
 
-- Or directly use [preprocessed data](https://drive.google.com/file/d/1XjHzJageFKFN7Tg-6F2NJz2sj9hSLPK0/view?usp=sharing) provided by [TransUNet](https://github.com/Beckschen/TransUNet).
+- Download the [ACDC dataset](https://drive.google.com/file/d/1zTOQH4nVbPMl6Ck8bEmQ6Fz9otM0JD2j/view?usp=sharing).
+
+- Download the [ISIC2018+PH2 dataset](https://drive.google.com/file/d/1LjRRF94c-JhCGfBjjKfKQfBGWcZGn5Hl/view?usp=sharing). 
 
 ### 3. Environment
 
