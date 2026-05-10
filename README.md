@@ -47,8 +47,16 @@ We trained our model on one NVIDIA A800 (80GB) with the CUDA 11.7 and CUDNN 8500
 cd MultiTrans_extension
 ```
 
+- Test:
+
 ```bash
 CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Datase1_Synapse_8classes' --val_interval 100 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --img_size 224 224 --inference_scales 1.0 --base_lr 5e-4 --betas 0.9 0.999 --T_max 100 --eta_min 1e-5 --weight_decay 1e-2 --max_epochs 300 --batch_size 24 --seed 1290 --fold_name 0 --marker='Ex_PreTrained_AdamW' --if_inferece_testset='false' --if_calc_metrics_test='false' --load_model_type='load_best_train_main_loss_model' --if_training='false'
+```
+
+- Save to Excel:
+
+```bash
+CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Datase1_Synapse_8classes' --val_interval 100 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --img_size 224 224 --base_lr 5e-4 --betas 0.9 0.999 --T_max 100 --eta_min 1e-5 --weight_decay 1e-2 --max_epochs 300 --batch_size 24 --seed 1290 --fold_name 0 --marker='Ex_PreTrained_AdamW' --if_training='false' --if_inferece_valset='false' --if_inferece_testset='false' --if_calc_metrics_val='false' --if_calc_metrics_test='false' --fold_ids_select 0 --if_avg_5_folds_val='true' --load_model_type='load_best_train_main_loss_model'
 ```
 
 ### 5. Train/Test by yourself
