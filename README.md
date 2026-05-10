@@ -7,8 +7,6 @@ Official Implementation of Attention-Mamba: A Mamba-Enhanced Multi-Scale Paralle
 
 - We will gradually optimize the code to make it more readable and standardized.
 
-- 
-
 ### 1. Download pre-trained Resnet models
 
 Download the pre-trained Resnet models and put them into the folder 'datasets_preprocessed'.
@@ -59,6 +57,28 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Datase1_Synapse_8classes' -
 CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Datase1_Synapse_8classes' --val_interval 100 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --img_size 224 224 --base_lr 5e-4 --betas 0.9 0.999 --T_max 100 --eta_min 1e-5 --weight_decay 1e-2 --max_epochs 300 --batch_size 24 --seed 1290 --fold_name 0 --marker='Ex_PreTrained_AdamW' --if_training='false' --if_inferece_valset='false' --if_inferece_testset='false' --if_calc_metrics_val='false' --if_calc_metrics_test='false' --fold_ids_select 0 --if_avg_5_folds_val='true' --load_model_type='load_best_train_main_loss_model'
 ```
 
+#### 2) ACDC dataset
+
+- Download the trained model:[link](https://drive.google.com/drive/folders/1odOE44vo5nF6WrTFasPpaLot3X8amcXJ?usp=sharing). This trained model reached 91.94% DSC and 92.03% DSC on the validation and test sets, respectively. 
+
+- Put 'best_trained_model_val_acc.pth' into this folder: 'results\Dataset2_ACDC_My_Attention_Mamba_2D_My_Attention_Mamba_2D_epo150_bs24_lr0.0005_wd0.05_calc_MultipleOutput_CE_and_Dice_Loss_Ex_PreTrained_AdamW_seed1290\fold_1\Train\Model_best'. Run the following order:
+
+```bash
+cd Attention-Mamba
+```
+
+- Test:
+
+```bash
+CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset2_ACDC' --val_interval 1 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --img_size 192 192 --inference_scales 1.0 --base_lr 5e-4 --betas 0.9 0.999 --T_max 50 --eta_min 1e-5 --weight_decay 5e-2 --max_epochs 150 --batch_size 24 --seed 1290 --fold_name 1 --marker='Ex_PreTrained_AdamW' --if_training='false'
+```
+
+- Save results to Excel:
+
+```bash
+CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset2_ACDC' --val_interval 1 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --img_size 192 192 --base_lr 5e-4 --betas 0.9 0.999 --T_max 50 --eta_min 1e-5 --weight_decay 5e-2 --max_epochs 150 --batch_size 24 --seed 1290 --fold_name 0 --marker='Ex_PreTrained_AdamW' --if_training='false' --if_inferece_valset='false' --if_inferece_testset='false' --if_calc_metrics_val='false' --if_calc_metrics_test='false' --fold_ids_select 1 --if_avg_5_folds_val='true' --if_avg_5_folds_test='true'
+```
+
 ### 5. Train/Test by yourself
 
 #### 1) Synapse dataset
@@ -67,7 +87,7 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Datase1_Synapse_8classes' -
 cd Attention-Mamba
 ```
 
-- Run the train script.
+- Run the train and test script.
 
 ```bash
 CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Datase1_Synapse_8classes' --val_interval 100 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --img_size 224 224 --inference_scales 1.0 --base_lr 5e-4 --betas 0.9 0.999 --T_max 100 --eta_min 1e-5 --weight_decay 1e-2 --max_epochs 300 --batch_size 24 --seed 1290 --fold_name 0 --marker='Ex_PreTrained_AdamW' --if_inferece_testset='false' --if_calc_metrics_test='false' --load_model_type='load_best_train_main_loss_model'
@@ -77,6 +97,24 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Datase1_Synapse_8classes' -
 
 ```bash
 CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Datase1_Synapse_8classes' --val_interval 100 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --img_size 224 224 --base_lr 5e-4 --betas 0.9 0.999 --T_max 100 --eta_min 1e-5 --weight_decay 1e-2 --max_epochs 300 --batch_size 24 --seed 1290 --fold_name 0 --marker='Ex_PreTrained_AdamW' --if_training='false' --if_inferece_valset='false' --if_inferece_testset='false' --if_calc_metrics_val='false' --if_calc_metrics_test='false' --fold_ids_select 0 --if_avg_5_folds_val='true' --load_model_type='load_best_train_main_loss_model'
+```
+
+#### 2) ACDC dataset
+
+```bash
+cd Attention-Mamba
+```
+
+- Run the train and test script.
+
+```bash
+CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset2_ACDC' --val_interval 1 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --img_size 192 192 --inference_scales 1.0 --base_lr 5e-4 --betas 0.9 0.999 --T_max 50 --eta_min 1e-5 --weight_decay 5e-2 --max_epochs 150 --batch_size 24 --seed 1290 --fold_name 1 --marker='Ex_PreTrained_AdamW'
+```
+
+- Save results to Excel.
+
+```bash
+CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset2_ACDC' --val_interval 1 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --img_size 192 192 --base_lr 5e-4 --betas 0.9 0.999 --T_max 50 --eta_min 1e-5 --weight_decay 5e-2 --max_epochs 150 --batch_size 24 --seed 1290 --fold_name 0 --marker='Ex_PreTrained_AdamW' --if_training='false' --if_inferece_valset='false' --if_inferece_testset='false' --if_calc_metrics_val='false' --if_calc_metrics_test='false' --fold_ids_select 1 --if_avg_5_folds_val='true' --if_avg_5_folds_test='true'
 ```
 
 ## Reference
