@@ -158,7 +158,7 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset3_ISIC2018_PH2' --va
 ```
 
 ## Reference
-* [TransUNet](https://github.com/Beckschen/TransUNet)
+* [MultiTrans](https://github.com/Yanhua-Zhang/MultiTrans-extension)
 
 ## Citations
 
