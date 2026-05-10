@@ -79,6 +79,28 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset2_ACDC' --val_interv
 CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset2_ACDC' --val_interval 1 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --img_size 192 192 --base_lr 5e-4 --betas 0.9 0.999 --T_max 50 --eta_min 1e-5 --weight_decay 5e-2 --max_epochs 150 --batch_size 24 --seed 1290 --fold_name 0 --marker='Ex_PreTrained_AdamW' --if_training='false' --if_inferece_valset='false' --if_inferece_testset='false' --if_calc_metrics_val='false' --if_calc_metrics_test='false' --fold_ids_select 1 --if_avg_5_folds_val='true' --if_avg_5_folds_test='true'
 ```
 
+#### 3) ISIC2018+PH2 dataset
+
+- Download the trained model:[link](https://drive.google.com/drive/folders/1B8-9UmhWYu8wff267Rm9JI80ss1q2P3g?usp=sharing). This trained model reached 90.12% DSC and 91.56% DSC on the ISIC2018 and PH2 datasets, respectively. 
+
+- Put 'best_trained_model_train_main_loss.pth' into this folder: 'results\Dataset3_ISIC2018_PH2_My_Attention_Mamba_2D_My_Attention_Mamba_2D_epo150_bs12_lr0.00015_wd0.01_calc_MultipleOutput_BCE_and_Dice_loss_Ex_PreTrained_AdamW_seed1290\fold_1\Train\Model_best'. Run the following order:
+
+```bash
+cd Attention-Mamba
+```
+
+- Test:
+
+```bash
+CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset3_ISIC2018_PH2' --val_interval 100 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --loss_calculator_name='calc_MultipleOutput_BCE_and_Dice_loss' --if_mask_to_long_type='false' --img_size 256 256 --inference_scales 1.0 --base_lr 1.5e-4 --betas 0.9 0.999 --T_max 50 --eta_min 1e-5 --weight_decay 1e-2 --max_epochs 150 --batch_size 12 --augmentation_type='ISIC_Aug_V4' --seed 1290 --fold_name 1 --marker='Ex_PreTrained_AdamW' --load_model_type='load_best_train_main_loss_model' --if_training='false'
+```
+
+- Save results to Excel:
+
+```bash
+CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset3_ISIC2018_PH2' --val_interval 100 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --loss_calculator_name='calc_MultipleOutput_BCE_and_Dice_loss' --if_mask_to_long_type='false' --img_size 256 256 --base_lr 1.5e-4 --betas 0.9 0.999 --T_max 50 --eta_min 1e-5 --weight_decay 1e-2 --max_epochs 150 --batch_size 12 --augmentation_type='ISIC_Aug_V4' --seed 1290 --fold_name 1 --marker='Ex_PreTrained_AdamW' --if_training='false' --if_inferece_valset='false' --if_inferece_testset='false' --if_calc_metrics_val='false' --if_calc_metrics_test='false' --fold_ids_select 1 --if_avg_5_folds_val='false' --if_avg_5_folds_test='true' --load_model_type='load_best_train_main_loss_model'
+```
+
 ### 5. Train/Test by yourself
 
 #### 1) Synapse dataset
@@ -115,6 +137,24 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset2_ACDC' --val_interv
 
 ```bash
 CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset2_ACDC' --val_interval 1 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --img_size 192 192 --base_lr 5e-4 --betas 0.9 0.999 --T_max 50 --eta_min 1e-5 --weight_decay 5e-2 --max_epochs 150 --batch_size 24 --seed 1290 --fold_name 0 --marker='Ex_PreTrained_AdamW' --if_training='false' --if_inferece_valset='false' --if_inferece_testset='false' --if_calc_metrics_val='false' --if_calc_metrics_test='false' --fold_ids_select 1 --if_avg_5_folds_val='true' --if_avg_5_folds_test='true'
+```
+
+#### 3) ISIC2018+PH2 dataset
+
+```bash
+cd Attention-Mamba
+```
+
+- Run the train and test script.
+
+```bash
+CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset3_ISIC2018_PH2' --val_interval 100 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --loss_calculator_name='calc_MultipleOutput_BCE_and_Dice_loss' --if_mask_to_long_type='false' --img_size 256 256 --inference_scales 1.0 --base_lr 1.5e-4 --betas 0.9 0.999 --T_max 50 --eta_min 1e-5 --weight_decay 1e-2 --max_epochs 150 --batch_size 12 --augmentation_type='ISIC_Aug_V4' --seed 1290 --fold_name 1 --marker='Ex_PreTrained_AdamW' --load_model_type='load_best_train_main_loss_model'
+```
+
+- Save results to Excel.
+
+```bash
+CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset3_ISIC2018_PH2' --val_interval 100 --loss_weights 1.0 1.0 1.0 1.0 1.0 0.25 0.25 0.25 0.25 --loss_calculator_name='calc_MultipleOutput_BCE_and_Dice_loss' --if_mask_to_long_type='false' --img_size 256 256 --base_lr 1.5e-4 --betas 0.9 0.999 --T_max 50 --eta_min 1e-5 --weight_decay 1e-2 --max_epochs 150 --batch_size 12 --augmentation_type='ISIC_Aug_V4' --seed 1290 --fold_name 1 --marker='Ex_PreTrained_AdamW' --if_training='false' --if_inferece_valset='false' --if_inferece_testset='false' --if_calc_metrics_val='false' --if_calc_metrics_test='false' --fold_ids_select 1 --if_avg_5_folds_val='false' --if_avg_5_folds_test='true' --load_model_type='load_best_train_main_loss_model'
 ```
 
 ## Reference
