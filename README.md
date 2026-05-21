@@ -46,7 +46,7 @@ pip install mamba-ssm
 - Put 'best_trained_model_train_main_loss.pth' into this folder: 'results\Datase1_Synapse_8classes_My_Attention_Mamba_2D_My_Attention_Mamba_2D_epo300_bs24_lr0.0005_wd0.01_calc_MultipleOutput_CE_and_Dice_Loss_Ex_PreTrained_AdamW_seed1290\fold_0\Train\Model_best'. Run the following order:
 
 ```bash
-cd Attention-Mamba
+cd Attention-Mamba-main/networks
 ```
 
 - Test:
@@ -68,7 +68,7 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Datase1_Synapse_8classes' -
 - Put 'best_trained_model_val_acc.pth' into this folder: 'results\Dataset2_ACDC_My_Attention_Mamba_2D_My_Attention_Mamba_2D_epo150_bs24_lr0.0005_wd0.05_calc_MultipleOutput_CE_and_Dice_Loss_Ex_PreTrained_AdamW_seed1290\fold_1\Train\Model_best'. Run the following order:
 
 ```bash
-cd Attention-Mamba
+cd Attention-Mamba-main/networks
 ```
 
 - Test:
@@ -90,7 +90,7 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset2_ACDC' --val_interv
 - Put 'best_trained_model_train_main_loss.pth' into this folder: 'results\Dataset3_ISIC2018_PH2_My_Attention_Mamba_2D_My_Attention_Mamba_2D_epo150_bs12_lr0.00015_wd0.01_calc_MultipleOutput_BCE_and_Dice_loss_Ex_PreTrained_AdamW_seed1290\fold_1\Train\Model_best'. Run the following order:
 
 ```bash
-cd Attention-Mamba
+cd Attention-Mamba-main/networks
 ```
 
 - Test:
@@ -110,7 +110,7 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset3_ISIC2018_PH2' --va
 #### 1) Synapse dataset
 
 ```bash
-cd Attention-Mamba
+cd Attention-Mamba-main/networks
 ```
 
 - Run the train and test script.
@@ -128,7 +128,7 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Datase1_Synapse_8classes' -
 #### 2) ACDC dataset
 
 ```bash
-cd Attention-Mamba
+cd Attention-Mamba-main/networks
 ```
 
 - Run the train and test script.
@@ -146,7 +146,7 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset2_ACDC' --val_interv
 #### 3) ISIC2018+PH2 dataset
 
 ```bash
-cd Attention-Mamba
+cd Attention-Mamba-main/networks
 ```
 
 - Run the train and test script.
