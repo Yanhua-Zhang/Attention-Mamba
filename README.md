@@ -13,7 +13,7 @@ Official Implementation of Attention-Mamba: A Mamba-Enhanced Multi-Scale Paralle
 
 Download the pre-trained Resnet models and put them into the folder 'datasets_preprocessed'.
 
-- resnet18-deep-stem:[link](https://drive.google.com/file/d/1q1VBV37acIte0GynoS054BWfwwdx1NiZ/view?usp=sharing)
+- resnet18-deep-stem: [link](https://drive.google.com/file/d/1q1VBV37acIte0GynoS054BWfwwdx1NiZ/view?usp=sharing)
 
 ### 2. Prepare data
 
