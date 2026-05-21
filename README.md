@@ -7,6 +7,8 @@ Official Implementation of Attention-Mamba: A Mamba-Enhanced Multi-Scale Paralle
 
 - We will gradually optimize the code to make it more readable and standardized.
 
+- For validation on the Synapse and ACDC test sets, each sequence is treated as a batch of 2D inputs, and sliding-window inference is applied. So, GPU memory consumption during validation depends on the sequence length and in-plane resolution of each case, ranging from over 24 GB to as much as 60 GB on the Synapse dataset. Please ensure that sufficient GPU memory is available.
+
 ### 1. Download pre-trained Resnet models
 
 Download the pre-trained Resnet models and put them into the folder 'datasets_preprocessed'.
