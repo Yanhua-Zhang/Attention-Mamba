@@ -41,7 +41,7 @@ pip install mamba-ssm
 
 #### 1) Synapse dataset
 
-- Download the trained model:[link](https://drive.google.com/drive/folders/1R342qkJUHctw6KTcOXDw464r9kYtmHit?usp=sharing). This trained model reached 85.62% DSC on the Synapse dataset. 
+- Download the trained model: [link](https://drive.google.com/drive/folders/1R342qkJUHctw6KTcOXDw464r9kYtmHit?usp=sharing). This trained model reached 85.62% DSC on the Synapse dataset. 
 
 - Put 'best_trained_model_train_main_loss.pth' into this folder: 'results\Datase1_Synapse_8classes_My_Attention_Mamba_2D_My_Attention_Mamba_2D_epo300_bs24_lr0.0005_wd0.01_calc_MultipleOutput_CE_and_Dice_Loss_Ex_PreTrained_AdamW_seed1290\fold_0\Train\Model_best'. Run the following order:
 
@@ -63,7 +63,7 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Datase1_Synapse_8classes' -
 
 #### 2) ACDC dataset
 
-- Download the trained model:[link](https://drive.google.com/drive/folders/1odOE44vo5nF6WrTFasPpaLot3X8amcXJ?usp=sharing). This trained model reached 91.94% DSC and 92.03% DSC on the validation and test sets, respectively. 
+- Download the trained model: [link](https://drive.google.com/drive/folders/1odOE44vo5nF6WrTFasPpaLot3X8amcXJ?usp=sharing). This trained model reached 91.94% DSC and 92.03% DSC on the validation and test sets, respectively. 
 
 - Put 'best_trained_model_val_acc.pth' into this folder: 'results\Dataset2_ACDC_My_Attention_Mamba_2D_My_Attention_Mamba_2D_epo150_bs24_lr0.0005_wd0.05_calc_MultipleOutput_CE_and_Dice_Loss_Ex_PreTrained_AdamW_seed1290\fold_1\Train\Model_best'. Run the following order:
 
@@ -85,7 +85,7 @@ CUDA_VISIBLE_DEVICES=1 python run_main.py --dataset='Dataset2_ACDC' --val_interv
 
 #### 3) ISIC2018+PH2 dataset
 
-- Download the trained model:[link](https://drive.google.com/drive/folders/1B8-9UmhWYu8wff267Rm9JI80ss1q2P3g?usp=sharing). This trained model reached 90.12% DSC and 91.56% DSC on the ISIC2018 and PH2 datasets, respectively. 
+- Download the trained model: [link](https://drive.google.com/drive/folders/1B8-9UmhWYu8wff267Rm9JI80ss1q2P3g?usp=sharing). This trained model reached 90.12% DSC and 91.56% DSC on the ISIC2018 and PH2 datasets, respectively. 
 
 - Put 'best_trained_model_train_main_loss.pth' into this folder: 'results\Dataset3_ISIC2018_PH2_My_Attention_Mamba_2D_My_Attention_Mamba_2D_epo150_bs12_lr0.00015_wd0.01_calc_MultipleOutput_BCE_and_Dice_loss_Ex_PreTrained_AdamW_seed1290\fold_1\Train\Model_best'. Run the following order:
 
